@@ -59,15 +59,14 @@ class Register extends DataBase{
                         $query = $this->conn->prepare('INSERT INTO user (login, mail, password,type_account) VALUES (?, ?, ? ,?)');
                         $query->bind_param('ssss', $login, $email, $password, $type_account);
                         $query->execute();
-                        echo json_encode(array("Zostałeś zarejestrowany pomyślnie! Możesz się teraz zalogować."));
-                        $_SESSION['has_already_register'] = true;
-                        print_r($_SESSION);
+                        echo json_encode(array_merge(array("msg"=> array("Zostałeś zarejestrowany pomyślnie! Możesz się teraz zalogować.")), array("status" => "ok")));
                         $query-> close();
                     } else {
-                        echo json_encode(array("Adres email/ login jest już zajęty!"));
+                        array_push($this->errors, "Adres email/ login jest już zajęty!");
+                        echo json_encode(array_merge(array('msg' => $this->errors), array('status' => 'error')));
                     }
                 } else {
-                    echo json_encode($this->errors);
+                    echo json_encode(array_merge(array('msg' => $this->errors), array('status' => 'error')));
                     
                 }
 

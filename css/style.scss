@@ -1,0 +1,280 @@
+$primary: #6d4c41;
+$secondary:#B1DDF1;
+$white: #fff;
+$grey: #efefef;
+$black: #000000;
+$montserrat: 'Montserrat',
+sans-serif;
+$width: 1280px;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $montserrat;
+}
+
+
+.bold {
+    font-weight: 700;
+}
+
+.light {
+    font-weight: 300;
+
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-justify-center {
+    justify-content: center;
+}
+
+.flex-justify-space {
+    justify-content: space-between;
+}
+
+.flex-align-center {
+    align-items: center;
+}
+
+.flex-align-start {
+    align-items: flex-start;
+}
+
+.flex-align-end {
+    align-items: flex-end;
+}
+
+.flex-justify-start {
+    justify-content: flex-start;
+}
+
+.flex-justify-end {
+    justify-content: flex-end;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline;
+}
+
+.normal {
+    font-weight: normal;
+}
+
+.btn {
+    border: 0;
+    cursor: pointer;
+    padding: 12px 17px;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.primary {
+    color: $primary;
+}
+
+.secondary {
+    color: $secondary;
+}
+
+.white {
+    color: $white;
+}
+
+.dark {
+    color: $black;
+}
+
+.grey {
+    color: $grey;
+}
+
+.bg-primary {
+    background-color: $primary;
+}
+
+.bg-secondary {
+    background-color: $secondary;
+}
+
+.bg-white {
+    background-color: $white;
+}
+
+.bg-dark {
+    background-color: $black;
+}
+
+.bg-grey {
+    background-color: $grey;
+}
+
+.container {
+    max-width: $width;
+    margin: auto;
+    width: 100%;
+}
+
+.nav-ul {
+    list-style: none;
+}
+
+.mx {
+    margin: auto;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.display-1 {
+    font-size: 30px;
+}
+
+.display-2 {
+    font-size: 20px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+p,
+a,
+span {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.lead {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.input {
+    border: 0;
+    border-bottom: 1px solid $primary;
+    outline: none;
+    color: $black;
+    height: 50px;
+}
+
+@for $i from 1 through 12 {
+    .m-#{$i} {
+        margin: $i* 10px;
+    }
+
+    .mt-#{$i} {
+        margin-top: $i* 10px;
+    }
+
+    .mb-#{$i} {
+        margin-bottom: $i* 10px;
+    }
+
+    .mr-#{$i} {
+        margin-right: $i* 10px;
+    }
+
+    .ml-#{$i} {
+        margin-left: $i* 10px;
+    }
+
+    .p-#{$i} {
+        padding: $i* 10px;
+    }
+
+    .pt-#{$i} {
+        padding-top: $i* 10px;
+    }
+
+    .pb-#{$i} {
+        padding-bottom: $i* 10px;
+    }
+
+    .pr-#{$i} {
+        padding-right: $i* 10px;
+    }
+
+    .pl-#{$i} {
+        padding-left: $i* 10px;
+    }
+
+
+}
+
+@media(min-width:1024px) {
+    @for $i from 1 through 12 {
+        .col-#{$i} {
+            width: $i/12 * 100%;
+        }
+
+
+    }
+
+}
+
+@media(max-width:1024px) {
+    @for $i from 1 through 12 {
+        .col-md-#{$i} {
+            width: $i/12 * 100%;
+        }
+    }
+
+    .flex-md-col {
+        flex-direction: column;
+    }
+}
+
+@media(max-width:767px) {
+    @for $i from 1 through 12 {
+        .col-sm-#{$i} {
+            width: $i/12 * 100%;
+        }
+    }
+
+    .flex-sm-col {
+        flex-direction: column;
+    }
+}
