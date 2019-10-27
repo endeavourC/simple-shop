@@ -1,13 +1,12 @@
 <?php
-session_start();
+$title="Logowanie";
+require_once('views/header.php');
 if(isset($_SESSION['is_logged'])){
 	if($_SESSION['is_logged']){
 		header("Location: panel.php");
 	}
-}
-$title="Logowanie";
-require_once('views/header.php');
 
+}
 ?>
 <div style="min-height:100vh;" class="container pt-12 pb-12 flex flex-justify-center flex-col flex-align-center">
 	<h2 class="mt-5 text-center">Zaloguj się</h2>

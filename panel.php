@@ -1,5 +1,6 @@
 <?php
-session_start();
+$title="Panel";
+require_once('views/header.php');
 require_once('module/User.php');
 if(!isset($_SESSION['is_logged'])){
     header("Location: login.php");
@@ -8,8 +9,7 @@ if(!isset($_SESSION['is_logged'])){
     $permissions = $user->get_permission($_SESSION['user_id']);
 };
 
-$title="Panel";
-require_once('views/header.php');
+
 ?>
 <?php
     if($permissions['type_account'] == "client"){

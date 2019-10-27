@@ -1,5 +1,4 @@
 <?php
-session_start();
 $title="Strona Główna";
 require_once('views/header.php');
 ?>

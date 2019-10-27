@@ -1,16 +1,16 @@
 <?php
-session_start();
+$title="Zarejestruj się";
+require_once('views/header.php');
 if(isset($_SESSION['is_logged'])){
 	if($_SESSION['is_logged']){
 		header("Location: panel.php");
 	}
 }
-$title="Zarejestruj się";
-require_once('views/header.php');
+
 ?>
 <div style="min-height:100vh;" class="container pt-12 pb-12 flex flex-justify-center flex-col flex-align-center">
     <h2 class="text-center mt-5">Zarejestruj się</h2>
-<form action="module/register.php" method="POST" style="width:50%"class="flex flex-col" >
+<form action="module/register.php" method="POST" class="col-6 col-sm-12 flex flex-col" style="transition: .4s;">
         <input type="text" class="input mt-1" name="register-login" id="register-login" placeholder="Login">
         <input type="email" class="input mt-1" name="register-email" id="register-email" placeholder="Adres e-mail">
         <input type="password" class="input mt-1" name="register-password" id="register-password" placeholder="Hasło">

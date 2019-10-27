@@ -11,7 +11,7 @@ const registerUser = (ev) => {
   formData.append('register-password', registerPassword);
   formData.append('repeat-register-password', repeatPassword);
   formData.append('register-type-account', registerTypeAccount);
-  fetch('../projekt/module/register.php', {
+  fetch('../simple-shop/module/register.php', {
       method: "POST",
       body: formData
     })
@@ -41,7 +41,7 @@ const loginUser = ev => {
   let password = document.querySelector('input[name=password]').value;
   formData.append('login', login);
   formData.append('password', password);
-  fetch('../projekt/module/login.php', {
+  fetch('../simple-shop/module/login.php', {
       method: "POST",
       body: formData
     })

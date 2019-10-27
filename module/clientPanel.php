@@ -8,8 +8,31 @@ if(isset($_GET['category'])){
 } else {
     $all_products =  $products->get_all_products();
 }
+$cart = isset($_SESSION['cart'])? $_SESSION['cart'] :array();
+if(isset($_GET['add-to-cart'])){
+    $currentProduct = $products->get_single_product($_GET['add-to-cart']);
+    $token = md5(uniqid(rand(), true));
+    $product = array(
+        'token' => $token,
+        'id' => $currentProduct['id'],
+        'name' => $currentProduct['name'],
+        'price' => $currentProduct['price'],
+        'src' => $currentProduct['src_img'],
+        'alt' => $currentProduct['alt_img']
+    );
+    array_push($cart, $product);   
+    $_SESSION['cart'] = $cart;
+}
+
 ?>
+ <?php
+        if(isset($_GET['add-to-cart']))
+        {
+            echo '<p class="text-center mt-2 display-1">Dodano do koszyka!</p>';
+        }
+    ?>
 <div class="container flex flex-wrap">
+
     <div class="col-3 col-sm-12">
         <ul  class="bg-grey white mt-12" >
         <?php
@@ -21,6 +44,7 @@ if(isset($_GET['category'])){
         </ul>
     </div>
     <div class="col-9 flex flex-wrap">
+   
     <?php
         if(count($all_products) == 0) { ?>
              <div class="col-6 col-sm-12 col-md-4 flex flex-col flex-align-center p-5">
@@ -31,7 +55,7 @@ if(isset($_GET['category'])){
 
         foreach($all_products as $product){?>
             <div class="col-6 col-sm-12 col-md-4 flex flex-col flex-align-center p-5">
-                <img src="<?php echo $product['src_img']?>" style="width:100%;" alt="<?php echo $product['alt_img'];?>">
+                <img src="<?php echo $product['src_img']?>" class="col-sm-12 col-6 col-md-6" alt="<?php echo $product['alt_img'];?>">
                 <span class="text-center secondary pt-2"><?php
                     $category = $products -> get_category_name($product['id_category']);
                     echo $category;
