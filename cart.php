@@ -5,7 +5,7 @@ if(!isset($_SESSION['is_logged'])){
     header("Location: login.php");
 };
 if(isset($_GET['delete'])){
-    $key = array_search($_GET['delete'],$_SESSION['cart']);
+    $key = array_search($_GET['delete'],array_column($_SESSION['cart'], 'token'));
     array_splice($_SESSION['cart'], $key, 1);
 }
 ?>

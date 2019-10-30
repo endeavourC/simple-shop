@@ -34,6 +34,8 @@ if(isset($_GET['add-to-cart'])){
 <div class="container flex flex-wrap">
 
     <div class="col-3 col-sm-12">
+        <button class="single-col-btn btn bg-primary white mt-5">1 kolumna</button>
+        <button class="double-col-btn btn bg-primary white mt-5">2 kolumny</button>
         <ul  class="bg-grey white mt-12" >
         <?php
             $all_categories = $products->get_all_categories(); 
@@ -54,7 +56,7 @@ if(isset($_GET['add-to-cart'])){
         <?php } else {
 
         foreach($all_products as $product){?>
-            <div class="col-6 col-sm-12 col-md-4 flex flex-col flex-align-center p-5">
+            <div style="transition:.4s;" class="single-product col-6 col-sm-12 col-md-4 flex flex-col flex-align-center p-5">
                 <img src="<?php echo $product['src_img']?>" class="col-sm-12 col-6 col-md-6" alt="<?php echo $product['alt_img'];?>">
                 <span class="text-center secondary pt-2"><?php
                     $category = $products -> get_category_name($product['id_category']);

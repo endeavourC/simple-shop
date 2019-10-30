@@ -56,3 +56,17 @@ const loginUser = ev => {
     })
 }
 document.querySelector('#login-btn') && document.querySelector('#login-btn').addEventListener('click', loginUser);
+const setOneColLayout = () => {
+     document.querySelectorAll('.single-product').forEach(single => {
+         single.classList.add('col-12');
+         single.classList.remove('col-6');
+     })
+ }
+const setDoubleColLayout = () => {
+     document.querySelectorAll('.single-product').forEach(single => {
+         single.classList.remove('col-12');
+         single.classList.add('col-6');
+     })
+ }
+document.querySelector('.single-col-btn') && document.querySelector('.single-col-btn').addEventListener('click', setOneColLayout);
+document.querySelector('.double-col-btn') && document.querySelector('.double-col-btn').addEventListener('click', setDoubleColLayout);
